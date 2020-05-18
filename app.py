@@ -8,8 +8,9 @@ server = app.server
 
 app.layout = html.Div(
     html.Div(
-        html.H1(children='My Dashboard')
+        html.H1(children='My Dashboard'))
 )
+
 
 
 if __name__ == '__main__':
