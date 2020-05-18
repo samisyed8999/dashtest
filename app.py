@@ -41,8 +41,8 @@ import plotly.graph_objs as go
 
 
 ########### Initiate the app
-#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__)
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets )
 server = app.server
 app.title=tabtitle
 
