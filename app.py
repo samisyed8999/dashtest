@@ -7,6 +7,7 @@ from simfin.names import *
 import dash_table
 from dash.dependencies import Output, Input, State
 
+tabtitle='Financial Statements'
 sf.set_data_dir('~/simfin_data/')
 api_key="ZxGEGRnaTpxMF0pbGQ3JLThgqY2HBL17"
 
@@ -53,8 +54,9 @@ df_balance['Fiscal Year']=df_balance['Fiscal Year'].apply(lambda x: round(x, dec
 df3 = df_balance.loc[ticker]
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__, , external_stylesheets=external_stylesheets)
+app = dash.Dash(__name__,external_stylesheets=external_stylesheets)
 server = app.server
+app.title=tabtitle
 
 app.layout = html.Div([
     html.Div(
