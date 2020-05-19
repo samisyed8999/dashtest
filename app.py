@@ -56,7 +56,6 @@ df3 = df_balance.loc[ticker]
 
 app = dash.Dash(__name__)
 server = app.server
-app.title = ("Financial Statements")
 
 app.layout = html.Div([
     html.Div(
