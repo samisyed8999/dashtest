@@ -64,7 +64,7 @@ app.title=tabtitle
 
 app.layout = html.Div([
     html.Div([
-        html.H2('                Fundemental Analysis'),
+        html.H2('Fundemental Analysis'),
         html.Img(src="/assets/stock-icon.png")
     ], className="banner"),
 
@@ -74,11 +74,11 @@ app.layout = html.Div([
     ], className="ticker1"),
 
 
-    dcc.Tabs(id="tabs", value='Tab1', children=[
-        dcc.Tab(label='Income Statement', id='tab1', value= 'Tab1', children=[
+    dcc.Tabs(id="tabs", value='Tab1', className='custom-tabs-container', children=[
+        dcc.Tab(label='Income Statement', id='tab1', value= 'Tab1', selected_className='custom-tab--selected', children=[
 
             html.Div(
-                html.H2('Income statement (m)')
+                html.H3('Income statement (m)')
             ),
             dash_table.DataTable(
                 id='table',
@@ -87,7 +87,7 @@ app.layout = html.Div([
             ),
 
             html.Div(
-                html.H2('Key Ratios %')
+                html.H3('Key Ratios %')
             ),
             dash_table.DataTable(
                 id='table2',
@@ -96,10 +96,10 @@ app.layout = html.Div([
             )
 
         ]),
-        dcc.Tab(label='Balance Sheet', id='tab2', value= 'Tab2', children=[
+        dcc.Tab(label='Balance Sheet', id='tab2', value= 'Tab2', selected_className='custom-tab--selected' ,children=[
 
             html.Div(
-                html.H2('Balance Sheet (m)')
+                html.H3('Balance Sheet (m)')
             ),
             dash_table.DataTable(
                 id='table3',
@@ -107,8 +107,8 @@ app.layout = html.Div([
                 data=df3.to_dict('records'),
             ),
         ]),
-        dcc.Tab(label='Cash Flow Statement', id='tab3', value= 'Tab3', children=["yo"]),
-        dcc.Tab(label='Intrinsic Value estimations', id='tab4', value= 'Tab4', children=["yo"]),
+        dcc.Tab(label='Cash Flow Statement', id='tab3', value= 'Tab3',selected_className='custom-tab--selected',  children=["yo"]),
+        dcc.Tab(label='Intrinsic Value estimations', id='tab4', value= 'Tab4', selected_className='custom-tab--selected',  children=["yo"]),
 
     ])
 ])
@@ -171,9 +171,9 @@ def update_columns(n_click, input_value):
         columns =[{"name": i, "id": i} for i in df3.columns]
         return columns
 
-app.css.append_css({
-    "external_url":"https://codepen.io/chriddyp/pen/bWLwgP.css"
-})
+# app.css.append_css({
+#     "external_url":"https://codepen.io/chriddyp/pen/bWLwgP.css"
+# })
 
 
 if __name__ == '__main__':
