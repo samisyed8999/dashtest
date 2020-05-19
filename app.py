@@ -11,6 +11,7 @@ from dash.dependencies import Output, Input, State
 sf.set_data_dir('~/simfin_data/')
 api_key="ZxGEGRnaTpxMF0pbGQ3JLThgqY2HBL17"
 
+tabtitle='Financial Statements'
 df_income = sf.load(dataset='income', variant='annual', market='us',index=[TICKER])
 df_income = df_income.drop(['Currency', 'SimFinId', 'Fiscal Period','Publish Date', 'Shares (Basic)',
                             'Abnormal Gains (Losses)','Abnormal Gains (Losses)','Net Extraordinary Gains (Losses)',
@@ -53,11 +54,10 @@ df_balance['Fiscal Year']=df_balance['Fiscal Year'].apply(lambda x: x * 1000000)
 df_balance['Fiscal Year']=df_balance['Fiscal Year'].apply(lambda x: round(x, decimals))
 df3 = df_balance.loc[ticker]
 
-
-app = dash.Dash(__name__)
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, , external_stylesheets=external_stylesheets)
 server = app.server
-app.title = 'Financial Statements'
-
+app.title=tabtitle
 
 app.layout = html.Div([
     html.Div(
