@@ -1,0 +1,29 @@
+.banner {
+    height: 75px;
+    margin: 0px -10px 40px;
+    background-color: rgb(66, 196, 247);
+    border-radius: 2px;
+}
+
+.banner h2{
+    color: white;
+    padding-top: 0px;
+    margin-left: 40%;
+    display: inline-block;
+}
+
+.banner Img{
+    position: relative;
+    float: right;
+    right: 10px;
+    height: 75px;
+}
+
+
+.ticker2 {
+    background-color: rgb(255,255,255);
+}
+
+.ticker1{
+    margin: -90px 0px 50px;
+}
