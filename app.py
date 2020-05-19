@@ -53,27 +53,32 @@ df_balance['Fiscal Year']=df_balance['Fiscal Year'].apply(lambda x: x * 1000000)
 df_balance['Fiscal Year']=df_balance['Fiscal Year'].apply(lambda x: round(x, decimals))
 df3 = df_balance.loc[ticker]
 
+
+app = dash.Dash(__name__)
+server = app.server
+app.title=tabtitle
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = dash.Dash(__name__,external_stylesheets=external_stylesheets)
 server = app.server
 app.title=tabtitle
 
 app.layout = html.Div([
-    html.Div(
-        html.H1('Financial Statements analysis')
-    ),
+    html.Div([
+        html.H2('                Fundemental Analysis'),
+        html.Img(src="/assets/stock-icon.png")
+    ], className="banner"),
 
     html.Div([
         dcc.Input(id="stock-input", value=ticker, type="text"),
-        html.Button(id="submit-button", n_clicks=0, children="Submit")
-    ]),
+        html.Button(id="submit-button", n_clicks=0, children="Submit", className="ticker2")
+    ], className="ticker1"),
 
 
     dcc.Tabs(id="tabs", value='Tab1', children=[
         dcc.Tab(label='Income Statement', id='tab1', value= 'Tab1', children=[
 
             html.Div(
-                html.H1('Income statement (m)')
+                html.H2('Income statement (m)')
             ),
             dash_table.DataTable(
                 id='table',
@@ -82,7 +87,7 @@ app.layout = html.Div([
             ),
 
             html.Div(
-                html.H1('Key Ratios %')
+                html.H2('Key Ratios %')
             ),
             dash_table.DataTable(
                 id='table2',
@@ -94,7 +99,7 @@ app.layout = html.Div([
         dcc.Tab(label='Balance Sheet', id='tab2', value= 'Tab2', children=[
 
             html.Div(
-                html.H1('Balance Sheet (m)')
+                html.H2('Balance Sheet (m)')
             ),
             dash_table.DataTable(
                 id='table3',
@@ -166,6 +171,9 @@ def update_columns(n_click, input_value):
         columns =[{"name": i, "id": i} for i in df3.columns]
         return columns
 
+app.css.append_css({
+    "external_url":"https://codepen.io/chriddyp/pen/bWLwgP.css"
+})
 
 
 if __name__ == '__main__':
