@@ -8,7 +8,6 @@ import dash_table
 from dash.dependencies import Output, Input, State
 
 #tabtitle = 'Financial Statements'
-app.title = ("Financial Statements")
 sf.set_data_dir('~/simfin_data/')
 api_key="ZxGEGRnaTpxMF0pbGQ3JLThgqY2HBL17"
 
@@ -57,6 +56,7 @@ df3 = df_balance.loc[ticker]
 
 app = dash.Dash(__name__)
 server = app.server
+app.title = ("Financial Statements")
 
 app.layout = html.Div([
     html.Div(
