@@ -54,11 +54,9 @@ df_balance['Fiscal Year']=df_balance['Fiscal Year'].apply(lambda x: round(x, dec
 df3 = df_balance.loc[ticker]
 
 
-app = dash.Dash(__name__)
-server = app.server
-app.title=tabtitle
-#external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-app = dash.Dash(__name__)
+
+external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+app = dash.Dash(__name__, external_stylesheets = external_stylesheets)
 server = app.server
 app.title=tabtitle
 
@@ -171,9 +169,9 @@ def update_columns(n_click, input_value):
         columns =[{"name": i, "id": i} for i in df3.columns]
         return columns
 
-app.css.append_css({
-     "external_url":"https://codepen.io/chriddyp/pen/bWLwgP.css"
- })
+#app.css.append_css({
+     #"external_url":"https://codepen.io/chriddyp/pen/bWLwgP.css"
+ #})
 
 
 if __name__ == '__main__':
