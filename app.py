@@ -12,7 +12,7 @@ from test1 import python
 from test2 import callbacks
 
 python()
-callbacks()
+
 
 app = dash.Dash(__name__)
 server = app.server
@@ -77,7 +77,7 @@ app.layout = html.Div([
     ])
 ])
 
-
+callbacks()
 
 if __name__ == '__main__':
     app.run_server()
