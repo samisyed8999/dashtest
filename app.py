@@ -8,10 +8,7 @@ from simfin.names import *
 import dash_table
 from dash.dependencies import Output, Input, State
 
-from test1 import python
-from test2 import callbacks
 
-python()
 
 
 app = dash.Dash(__name__)
@@ -77,7 +74,7 @@ app.layout = html.Div([
     ])
 ])
 
-callbacks()
+
 
 if __name__ == '__main__':
     app.run_server()
