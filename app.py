@@ -20,7 +20,7 @@ graph = df_freecashflow.loc['AAPL']
 graph = graph.transpose()
 
 
-dashapp1.layout = html.Div([
+app.layout = html.Div([
 
     dcc.Tabs(id='tabs', value='tab-1', children=[
         dcc.Tab(label='Income Statement', value='tab-1'),
@@ -33,7 +33,7 @@ dashapp1.layout = html.Div([
 ])
 
 
-@dashapp1.callback(Output('tabs-content', 'children'),
+app.callback(Output('tabs-content', 'children'),
                    [Input('tabs', 'value')])
 def render_content(tab):
     if tab == 'tab-1':
