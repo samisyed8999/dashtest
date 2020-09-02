@@ -19,7 +19,8 @@ df_freecashflow['FCF']= df_freecashflow['FCF'].apply(lambda x: x / 1000000)
 graph = df_freecashflow.loc['AAPL']
 graph = graph.transpose()
 
-
+app = dash.Dash(__name__)
+server = app.server
 app.layout = html.Div([
 
     dcc.Tabs(id='tabs', value='tab-1', children=[
