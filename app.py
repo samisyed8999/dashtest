@@ -11,7 +11,7 @@ from dash.dependencies import Output, Input, State
 sf.set_data_dir('~/simfin_data/')
 api_key="ZxGEGRnaTpxMF0pbGQ3JLThgqY2HBL17"
 
-df_cashflow = sf.load_cashflow(variant='annual', market='us', index=[TICKER, FISCAL YEAR])
+df_cashflow = sf.load_cashflow(variant='annual', market='us', index=[TICKER, FISCAL_YEAR])
 df_freecashflow = pd.DataFrame()
 #df_freecashflow['Year'] = df_cashflow['Fiscal Year'].copy()
 df_freecashflow['FCF'] = df_cashflow[NET_CASH_OPS] + df_cashflow[CAPEX]
