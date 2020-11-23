@@ -298,7 +298,7 @@ clustersignals = clustersignals.drop(['Ticker'], axis=1)
 # dashapp1 = dash.Dash(__name__,
 #                  assets_folder=get_root_path(__name__) + '/assets/',
 #                  meta_tags=[meta_viewport])
-dashapp1 = dash.Dash(__name__, assets_folder=get_root_path(__name__) + '/assets/')
+dashapp1 = dash.Dash(__name__)
 #                  meta_tags=[meta_viewport])
 server = dashapp1.server
 #html.Img(src= dashapp1.get_asset_url('stock-icon.png')) 
