@@ -296,7 +296,7 @@ clustersignals = clustersignals.drop(['Ticker'], axis=1)
 meta_viewport = {"name": "viewport", "content": "width=device-width, initial-scale=1, shrink-to-fit=no"}
 
 dashapp1 = dash.Dash(__name__,
-                 server=app,
+                 #server=app,
                  url_base_pathname='/dashboard/',
                  assets_folder=get_root_path(__name__) + '/assets/',
                  meta_tags=[meta_viewport])
