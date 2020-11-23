@@ -296,10 +296,9 @@ clustersignals = clustersignals.drop(['Ticker'], axis=1)
 meta_viewport = {"name": "viewport", "content": "width=device-width, initial-scale=1, shrink-to-fit=no"}
 
 dashapp1 = dash.Dash(__name__,
-                 server = dashapp1.server
-                 url_base_pathname='/dashboard/',
                  assets_folder=get_root_path(__name__) + '/assets/',
                  meta_tags=[meta_viewport])
+server = dashapp1.server
 #html.Img(src= dashapp1.get_asset_url('stock-icon.png')) 
 dashapp1.title = 'Financial Statements'
 dashapp1.config['suppress_callback_exceptions'] = True
